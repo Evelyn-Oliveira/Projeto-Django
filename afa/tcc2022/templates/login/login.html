@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+	<div class="container">
+		<div class="screen">
+			<div class="screen__content">
+				{% if msg %}
+				<div  class="erro-login">
+					<p class="msg-success" text-color="red">
+						{{msg}}	
+					</p>
+				</div>
+				{% endif %}
+				<form class="post-form login" method="post" action="{% url 'login'%}">
+					{% csrf_token %}
+					<div class="login__field">
+						<i class="login__icon fas fa-user"></i>
+						<input type="text" class="login__input" placeholder="Seu Login" name="nome">
+					</div>
+					<div class="login__field">
+						<i class="login__icon fas fa-lock"></i>
+						<input type="password" class="login__input" placeholder="Senha" name="senha">
+					</div>
+					<button class="button login__submit">
+						<span class="button__text">Login</span>
+						<i class="button__icon fas fa-chevron-right"></i>
+					</button>				
+				</form>
+				<div class="social-login2">
+					<h3>TCC 2022</h3>
+					<div class="social-icons">
+						<a href="#" class="social-login__icon fab fa-instagram"></a>
+						<a href="#" class="social-login__icon fab fa-facebook"></a>
+						<a href="#" class="social-login__icon fab fa-twitter"></a>
+						<a href="{% url 'refreshbd' %}" class="bt_atualiza_bd"> Atualiza BD</a>
+					</div>
+				</div>
+			</div>
+			<div class="screen__background">
+				<span class="screen__background__shape screen__background__shape4"></span>
+				<span class="screen__background__shape screen__background__shape3"></span>		
+				<span class="screen__background__shape screen__background__shape2"></span>
+				<span class="screen__background__shape screen__background__shape1"></span>
+			</div>		
+		</div>
+	</div>
+	<script>
+		  setTimeout(function(){ 
+                $('.msg-success').remove();   
+            }, 5000);
+	</script>
+</html>
+{% endblock %}

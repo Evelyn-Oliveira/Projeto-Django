@@ -1,0 +1,8 @@
+<select name="subarea" id="SubArea" class="form-select formAreacss">
+    <option value="" disabled selected>Escolha o Núcleo Temático</option>
+    
+    {% for sub in subarea %}
+    <option value="{{sub.id}}">{{sub.subarea}}</option>
+    {% endfor %}
+
+</select>

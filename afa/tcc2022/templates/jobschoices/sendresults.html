@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<html>
+    <div class="container2">
+        <div class="screenbig2">
+            <div class="screen__content">
+                <form method="post" action="{% url 'confirmchoices' %}">
+                    {% csrf_token %}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr width="100%" align="center">
+                                <th>Quantidade</th>
+                                <th>Título</th>
+                                <th>Prioridade</th>
+                            </tr>
+                        </thead>
+                        <tbody>  
+                    
+                            <form method="post">
+                                {% csrf_token %}
+                                {% for trab in trabescolhidos %}
+                                <tr>
+                                    <td align="center">{{forloop.counter}}</td>
+                                    <td>{{trab.trabalho.titulo}}</td>
+                                    <td align="center">{{trab.nota}}</td>
+                            </form>
+                            </tr>
+                            {% empty %}
+                            {% endfor %} 
+                        </tbody>
+                    </table>
+                    
+                        <button name = "salvar-resultado" class="button loginbig3__submit" value="{% url 'confirmchoices' %}">
+                            <span class="button__text">Salvar Resultados</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                    
+                </form>   
+        
+                    <form method="get" action="{% url 'showchoicejobs' %}">
+                        {% csrf_token %}
+                        <button name = "voltar-selecao" class="button loginbig5__submit" value="{% url 'showchoicejobs' %}">
+                            <span class="button__text">Voltar para a Priorização</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>         
+                    </form>
+               
+				<div class="social-login"></div>
+            </div>
+        </div>
+    </div>
+  
+    <script src="{% static 'js/javascript.js'%}"></script> 
+</html>
+{% endblock %}

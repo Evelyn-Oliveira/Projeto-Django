@@ -1,0 +1,6 @@
+<select name="trabarea" id="TrabdaArea" class="form-select formAreacss">
+    <option value="" disabled selected>Escolha o Trabalho</option>
+    {% for trab in trabalhos %}
+    <option value="{{trab.id}}">{{trab.titulo}}</option>
+    {% endfor %}
+</select>

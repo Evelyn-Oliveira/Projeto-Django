@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> {% block title %} Trabalho de Conclusão de Curso 2022 {% endblock %} </title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/meu.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light border border-dark rounded my-2 mx-1" style="background-color: #0391da;">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">
+       <img src="{% static '/imagens/LogoDE.png' %}" width="80" height="85" alt="" class="d-inline-block align-text-center"> 
+       Trabalho de Conclusão - Turma Orthrus - Definição dos Orientadores</a>
+    
+    </div>
+    </nav> 
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="page-footer font-small border border-dark rounded mx-1"  style="background-color: #0391da;">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center text-white py-3">© 2022 Copyright:
+        <a class="text-dark"> Subdvisão de Pesquisa e Produção Científica</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+  </div>
+
+
+  <script src="{% static 'js/javascript.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  {% block custom_js %}
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+
+  </script>
+  {% endblock %}
+</body>
+
+</html>
